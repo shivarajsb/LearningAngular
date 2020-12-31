@@ -9,9 +9,13 @@ import { CommonModule } from '@angular/common';
 /* Angular Material Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FirstChildComponent } from './Components/first-child/first-child.component';
+import { SecondChildComponent } from './Components/second-child/second-child.component';
+import { FirstContainerComponent } from './Components/first-container/first-container.component';
+import { SecondContainerComponent } from './Components/second-container/second-container.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FirstChildComponent, SecondChildComponent, FirstContainerComponent, SecondContainerComponent],
   imports: [
     BrowserModule,
     CommonModule,
