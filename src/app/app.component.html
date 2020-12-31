@@ -5,11 +5,11 @@
     fxLayoutAlign="space-between"
     style="width: 500px"
   >
-    <button mat-stroked-button color="accent" (click)="increment()">
-      Increment
+    <button mat-stroked-button color="accent" (click)="navigate('first')">
+      First
     </button>
-    <button mat-stroked-button color="primary" (click)="decrement()">
-      Decrement
+    <button mat-stroked-button color="primary" (click)="navigate('second')">
+      Second
     </button>
   </div>
   <router-outlet></router-outlet>

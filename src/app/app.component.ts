@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { interval, forkJoin, combineLatest } from 'rxjs';
 import { take, scan, mapTo, reduce } from 'rxjs/operators';
 
@@ -7,25 +8,14 @@ import { take, scan, mapTo, reduce } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'LearningAngular';
-  constructor() {
-    const scanstream = interval(1000).pipe(
-      mapTo(4),
-      scan((a, c) => a + c, 0)
-    );
-    const reduceStream = interval(1000).pipe(
-      mapTo(4),
-      take(5),
-      reduce((a, c) => a + c, 0)
-    );
-    scanstream.subscribe((val) => console.log('Scan ' + val));
-    reduceStream.subscribe((val) => console.log('Reduce ' + val));
+  constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit() {
+    this.route.data.subscribe((val) => console.log('This is the value', val));
   }
-  increment() {
-    console.log('Incrementing');
-  }
-  decrement() {
-    console.log('decrementing');
+
+  navigate(val: string) {
+    this.router.navigate([val]);
   }
 }
